@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="PhoneCheck — каталог смартфонов, характеристики, поиск и сравнение"
+    >
+
+    <title>PhoneCheck — каталог смартфонов</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background">
+
+    <div class="bg-glow glow-red"></div>
+    <div class="bg-glow glow-orange"></div>
+    <div class="bg-glow glow-red-2"></div>
+
+</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <a
+            href="#home"
+            class="logo"
+        >
+
+            <span class="logo-icon">
+                📱
+            </span>
+
+            <span class="logo-text">
+                Phone<span>Check</span>
+            </span>
+
+        </a>
+
+
+        <nav class="navigation">
+
+            <a href="#home">
+                Главная
+            </a>
+
+            <a href="#phones">
+                Телефоны
+            </a>
+
+            <a href="#top">
+                Топ
+            </a>
+
+            <a href="#compare">
+                Сравнение
+            </a>
+
+            <a href="#about">
+                О нас
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button
+                class="header-login"
+                id="loginButton"
+            >
+                Войти
+            </button>
+
+            <button
+                class="header-register"
+                id="registerButton"
+            >
+                Регистрация
+            </button>
+
+        </div>
+
+
+        <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+>
+
+    <a href="#home">
+        Главная
+    </a>
+
+    <a href="#phones">
+        Телефоны
+    </a>
+
+    <a href="#top">
+        Топ
+    </a>
+
+    <a href="#compare">
+        Сравнение
+    </a>
+
+    <a href="#about">
+        О нас
+    </a>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Большой каталог смартфонов
+        </div>
+
+
+        <h1>
+
+            Узнай всё
+
+            <br>
+
+            <span class="gradient-text">
+                о своём смартфоне
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Сравнивай смартфоны, находи лучшие модели,
+            изучай характеристики камер, экранов,
+            процессоров, батарей и зума.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <button
+                class="primary-button"
+                id="startButton"
+            >
+
+                Начать бесплатно
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+            <a
+                href="#phones"
+                class="secondary-button"
+            >
+
+                Смотреть каталог
+
+                <span>
+                    ↓
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-stats">
+
+            <div class="stat">
+
+                <strong id="phoneCount">
+                    0
+                </strong>
+
+                <span>
+                    смартфонов
+                </span>
+
+            </div>
+
+
+            <div class="stat-divider"></div>
+
+
+            <div class="stat">
+
+                <strong>
+                    20+
+                </strong>
+
+                <span>
+                    характеристик
+                </span>
+
+            </div>
+
+
+            <div class="stat-divider"></div>
+
+
+            <div class="stat">
+
+                <strong>
+                    ⚡
+                </strong>
+
+                <span>
+                    быстрый поиск
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         HERO PHONE
+    ================================================== -->
+
+    <div class="hero-visual">
+
+        <div class="hero-circle circle-1"></div>
+        <div class="hero-circle circle-2"></div>
+
+
+        <div class="hero-phone">
+
+            <div class="hero-camera">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <div class="hero-phone-logo">
+                PHONECHECK
+            </div>
+
+
+            <div class="hero-screen">
+
+                <div class="screen-header">
+                    PhoneCheck
+                </div>
+
+
+                <div class="screen-rating">
+                    9.7
+                </div>
+
+
+                <div class="screen-caption">
+                    Общая оценка
+                </div>
+
+
+                <div class="screen-bars">
+
+                    <div class="screen-bar">
+
+                        <div>
+                            <span>
+                                Камера
+                            </span>
+
+                            <b>
+                                98%
+                            </b>
+                        </div>
+
+                        <i style="width:98%"></i>
+
+                    </div>
+
+
+                    <div class="screen-bar">
+
+                        <div>
+                            <span>
+                                Экран
+                            </span>
+
+                            <b>
+                                97%
+                            </b>
+                        </div>
+
+                        <i style="width:97%"></i>
+
+                    </div>
+
+
+                    <div class="screen-bar">
+
+                        <div>
+                            <span>
+                                Процессор
+                            </span>
+
+                            <b>
+                                99%
+                            </b>
+                        </div>
+
+                        <i style="width:99%"></i>
+
+                    </div>
+
+
+                    <div class="screen-bar">
+
+                        <div>
+                            <span>
+                                Батарея
+                            </span>
+
+                            <b>
+                                93%
+                            </b>
+
+                        </div>
+
+                        <i style="width:93%"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SEARCH
+===================================================== -->
+
+<section class="search-section">
+
+    <div class="search-container">
+
+        <div class="search-title">
+
+            <span>
+                🔎
+            </span>
+
+            <div>
+
+                <strong>
+                    Найди свой смартфон
+                </strong>
+
+                <small>
+                    Поиск по названию или бренду
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                🔍
+            </span>
+
+
+            <input
+                id="phoneSearch"
+                type="search"
+                autocomplete="off"
+                placeholder="Например: iPhone 17 Pro Max..."
+            >
+
+
+            <button
+                id="searchButton"
+                type="button"
+            >
+                Найти
+            </button>
+
+        </div>
+
+
+        <div
+            class="search-result"
+            id="searchResult"
+        ></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PHONE CATALOG
+===================================================== -->
+
+<section
+    class="content-section"
+    id="phones"
+>
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                КАТАЛОГ
+            </span>
+
+            <h2>
+                Все смартфоны
+            </h2>
+
+            <p class="section-description">
+                Большая база смартфонов с характеристиками
+            </p>
+
+        </div>
+
+
+        <div class="catalog-count">
+
+            <span id="visiblePhoneCount">
+                0
+            </span>
+
+            моделей
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         FILTERS
+    ================================================== -->
+
+    <div class="filters">
+
+        <div class="filter-group">
+
+            <label>
+                Бренд
+            </label>
+
+            <select id="brandFilter">
+
+                <option value="all">
+                    Все бренды
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="filter-group">
+
+            <label>
+                Сортировка
+            </label>
+
+            <select id="sortFilter">
+
+                <option value="rating">
+                    По рейтингу
+                </option>
+
+                <option value="camera">
+                    По камере
+                </option>
+
+                <option value="performance">
+                    По производительности
+                </option>
+
+                <option value="battery">
+                    По батарее
+                </option>
+
+                <option value="zoom">
+                    По зуму
+                </option>
+
+                <option value="name">
+                    По названию
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            id="resetFilters"
+            class="reset-filter"
+        >
+            Сбросить
+        </button>
+
+    </div>
+
+
+
+    <!-- =================================================
+         PHONE GRID
+    ================================================== -->
+
+    <div
+        class="phone-grid"
+        id="phoneGrid"
+    >
+
+        <!--
+
+            КАРТОЧКИ СОЗДАЁТ APP.JS
+
+            Здесь вручную писать 500 карточек НЕ нужно.
+
+            JavaScript загрузит весь каталог
+            автоматически.
+
+        -->
+
+    </div>
+
+
+
+    <!-- =================================================
+         NO RESULTS
+    ================================================== -->
+
+    <div
+        class="no-results"
+        id="noResults"
+    >
+
+        <div class="no-results-icon">
+            🔍
+        </div>
+
+        <h3>
+            Ничего не найдено
+        </h3>
+
+        <p>
+            Попробуй изменить запрос или фильтры.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     TOP
+===================================================== -->
+
+<section
+    class="content-section"
+    id="top"
+>
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                РЕЙТИНГ
+            </span>
+
+            <h2>
+                Лучшие смартфоны
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="top-list"
+        id="topList"
+    >
+
+        <!-- APP.JS -->
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COMPARE
+===================================================== -->
+
+<section
+    class="compare-section"
+    id="compare"
+>
+
+    <div class="compare-content">
+
+        <span class="section-label">
+            СРАВНЕНИЕ
+        </span>
+
+
+        <h2>
+            Какой телефон лучше?
+        </h2>
+
+
+        <p>
+            Выбери два смартфона в каталоге
+            и сравни их характеристики.
+        </p>
+
+
+        <button
+            class="primary-button"
+            id="compareButton"
+        >
+
+            Сравнить телефоны
+
+            <span>
+                →
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <div class="compare-preview">
+
+        <div class="compare-device">
+            📱
+        </div>
+
+        <div class="compare-vs">
+            VS
+        </div>
+
+        <div class="compare-device">
+            📱
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    class="about-section"
+    id="about"
+>
+
+    <span class="section-label">
+        PHONECHECK
+    </span>
+
+
+    <h2>
+        Всё о смартфонах
+        <br>
+        в одном месте.
+    </h2>
+
+
+    <p>
+        PhoneCheck — удобный каталог смартфонов,
+        где можно искать модели, смотреть характеристики,
+        сравнивать устройства и находить лучшие варианты.
+    </p>
+
+
+    <div class="about-features">
+
+        <div class="about-feature">
+
+            <span>
+                📱
+            </span>
+
+            <strong>
+                Большой каталог
+            </strong>
+
+            <p>
+                Сотни моделей разных производителей.
+            </p>
+
+        </div>
+
+
+        <div class="about-feature">
+
+            <span>
+                🔎
+            </span>
+
+            <strong>
+                Быстрый поиск
+            </strong>
+
+            <p>
+                Найди нужную модель за несколько секунд.
+            </p>
+
+        </div>
+
+
+        <div class="about-feature">
+
+            <span>
+                ⚔️
+            </span>
+
+            <strong>
+                Сравнение
+            </strong>
+
+            <p>
+                Сравни характеристики двух смартфонов.
+            </p>
+
+        </div>
+
+
+        <div class="about-feature">
+
+            <span>
+                📊
+            </span>
+
+            <strong>
+                Характеристики
+            </strong>
+
+            <p>
+                Камера, экран, батарея, процессор и зум.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-logo">
+
+            <span>
+                📱
+            </span>
+
+            Phone<span>Check</span>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#home">
+                Главная
+            </a>
+
+            <a href="#phones">
+                Каталог
+            </a>
+
+            <a href="#compare">
+                Сравнение
+            </a>
+
+            <a href="#about">
+                О нас
+            </a>
+
+        </div>
+
+
+        <div class="footer-copy">
+            © 2026 PhoneCheck
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     APP
+===================================================== -->
+
+<script src="app.js"></script>
+
+</body>
+</html>
