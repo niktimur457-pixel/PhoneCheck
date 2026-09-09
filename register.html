@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Регистрация — PhoneCheck</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 55, 0, 0.18), transparent 35%),
+                radial-gradient(circle at 80% 80%, rgba(255, 120, 0, 0.14), transparent 35%),
+                #070707;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .background {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.35;
+        }
+
+        .glow-red {
+            background: #ff2600;
+            top: -250px;
+            left: -150px;
+        }
+
+        .glow-orange {
+            background: #ff8a00;
+            right: -250px;
+            bottom: -250px;
+        }
+
+        .register-container {
+            width: min(440px, calc(100% - 32px));
+            position: relative;
+            z-index: 2;
+        }
+
+        .register-card {
+            background: rgba(15, 15, 17, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 28px;
+            padding: 42px 38px;
+
+            box-shadow:
+                0 30px 100px rgba(0, 0, 0, 0.65),
+                0 0 70px rgba(255, 55, 0, 0.08);
+
+            backdrop-filter: blur(25px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: linear-gradient(
+                135deg,
+                #ff2400,
+                #ff7a00
+            );
+
+            box-shadow:
+                0 8px 30px rgba(255, 70, 0, 0.35);
+
+            font-size: 24px;
+        }
+
+        .logo-text {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -0.7px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #8d8d93;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #cfcfd4;
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: 17px;
+        }
+
+        input {
+            width: 100%;
+            height: 54px;
+
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 14px;
+
+            background: rgba(255, 255, 255, 0.045);
+            color: white;
+
+            padding: 0 16px 0 46px;
+
+            outline: none;
+
+            font-size: 15px;
+
+            transition: 0.25s;
+        }
+
+        input::placeholder {
+            color: #626268;
+        }
+
+        input:focus {
+            border-color: rgba(255, 85, 0, 0.75);
+
+            background: rgba(255, 255, 255, 0.065);
+
+            box-shadow:
+                0 0 0 4px rgba(255, 65, 0, 0.08),
+                0 0 25px rgba(255, 65, 0, 0.08);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            padding-right: 50px;
+        }
+
+        .show-password {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            border: none;
+            background: transparent;
+
+            color: #777;
+            cursor: pointer;
+
+            font-size: 17px;
+        }
+
+        .show-password:hover {
+            color: white;
+        }
+
+        .register-button {
+            width: 100%;
+            height: 55px;
+
+            border: none;
+            border-radius: 15px;
+
+            margin-top: 8px;
+
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            background: linear-gradient(
+                135deg,
+                #ff2b00,
+                #ff7200
+            );
+
+            box-shadow:
+                0 12px 30px rgba(255, 65, 0, 0.25);
+
+            transition: 0.25s;
+        }
+
+        .register-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 16px 38px rgba(255, 65, 0, 0.35);
+        }
+
+        .register-button:active {
+            transform: translateY(0);
+        }
+
+        .message {
+            display: none;
+
+            margin-top: 16px;
+            padding: 12px 14px;
+
+            border-radius: 12px;
+
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .message.error {
+            display: block;
+
+            color: #ffaaa0;
+            background: rgba(255, 40, 0, 0.09);
+            border: 1px solid rgba(255, 50, 0, 0.18);
+        }
+
+        .message.success {
+            display: block;
+
+            color: #a8ffbe;
+            background: rgba(0, 255, 100, 0.07);
+            border: 1px solid rgba(0, 255, 100, 0.15);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 24px;
+
+            color: #777;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #ff6a00;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .back-button {
+            display: block;
+
+            text-align: center;
+
+            margin-top: 18px;
+
+            color: #777;
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition: 0.2s;
+        }
+
+        .back-button:hover {
+            color: white;
+        }
+
+        @media (max-width: 500px) {
+            .register-card {
+                padding: 32px 22px;
+                border-radius: 22px;
+            }
+
+            .title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background">
+        <div class="glow glow-red"></div>
+        <div class="glow glow-orange"></div>
+    </div>
+
+    <main class="register-container">
+
+        <div class="register-card">
+
+            <div class="logo">
+                <div class="logo-icon">📱</div>
+                <div class="logo-text">PhoneCheck</div>
+            </div>
+
+            <h1 class="title">Создать аккаунт</h1>
+
+            <p class="subtitle">
+                Зарегистрируйтесь, чтобы пользоваться всеми возможностями PhoneCheck
+            </p>
+
+            <form id="registerForm">
+
+                <div class="form-group">
+                    <label for="username">Логин</label>
+
+                    <div class="input-wrapper">
+                        <span class="input-icon">👤</span>
+
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Придумайте логин"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+
+                    <div class="input-wrapper password-wrapper">
+                        <span class="input-icon">🔒</span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Придумайте пароль"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            id="showPassword"
+                        >
+                            👁
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="passwordConfirm">Повторите пароль</label>
+
+                    <div class="input-wrapper password-wrapper">
+                        <span class="input-icon">🔐</span>
+
+                        <input
+                            type="password"
+                            id="passwordConfirm"
+                            placeholder="Повторите пароль"
+                            autocomplete="new-password"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <button
+                    type="submit"
+                    class="register-button"
+                >
+                    Создать аккаунт
+                </button>
+
+                <div id="message" class="message"></div>
+
+            </form>
+
+            <div class="login-link">
+                Уже есть аккаунт?
+                <a href="login.html">Войти</a>
+            </div>
+
+            <a href="index.html" class="back-button">
+                ← Вернуться в PhoneCheck
+            </a>
+
+        </div>
+
+    </main>
+
+    <script>
+        const form = document.getElementById("registerForm");
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+        const passwordConfirmInput = document.getElementById("passwordConfirm");
+        const message = document.getElementById("message");
+        const showPassword = document.getElementById("showPassword");
+
+        showPassword.addEventListener("click", () => {
+            const type =
+                passwordInput.type === "password"
+                    ? "text"
+                    : "password";
+
+            passwordInput.type = type;
+            passwordConfirmInput.type = type;
+
+            showPassword.textContent =
+                type === "password" ? "👁" : "🙈";
+        });
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+            const passwordConfirm = passwordConfirmInput.value;
+
+            message.className = "message";
+            message.textContent = "";
+
+            if (username.length < 3) {
+                message.className = "message error";
+                message.textContent =
+                    "Логин должен содержать минимум 3 символа.";
+                return;
+            }
+
+            if (password.length < 6) {
+                message.className = "message error";
+                message.textContent =
+                    "Пароль должен содержать минимум 6 символов.";
+                return;
+            }
+
+            if (password !== passwordConfirm) {
+                message.className = "message error";
+                message.textContent =
+                    "Пароли не совпадают.";
+                return;
+            }
+
+            const users =
+                JSON.parse(localStorage.getItem("phonecheck_users") || "[]");
+
+            const exists = users.some(
+                user => user.username.toLowerCase() === username.toLowerCase()
+            );
+
+            if (exists) {
+                message.className = "message error";
+                message.textContent =
+                    "Такой логин уже зарегистрирован.";
+                return;
+            }
+
+            users.push({
+                username: username,
+                password: password
+            });
+
+            localStorage.setItem(
+                "phonecheck_users",
+                JSON.stringify(users)
+            );
+
+            message.className = "message success";
+            message.textContent =
+                "Аккаунт создан! Сейчас вы будете перенаправлены.";
+
+            form.reset();
+
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1200);
+        });
+    </script>
+
+</body>
+</html>
